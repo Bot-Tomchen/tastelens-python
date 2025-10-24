@@ -23,11 +23,22 @@ menus = {
     }
 }
 
-HTML_TEMPLATE = """<!doctype html>
+def render_menu(restaurant):
+    blocks = []
+    for d in restaurant["dishes"]:
+        blocks.append(
+            f"<div class='dish'>"
+            f"<img src='{d['img']}' alt='{d['name']}' />"
+            f"<div><h3 class='name'>{d['name']}</h3>"
+            f"<p class='desc'>{d['desc']}</p></div>"
+            f"</div>"
+        )
+    
+    html = f"""<!doctype html>
 <html>
 <head>
 <meta charset="utf-8" />
-<title>{title}</title>
+<title>{restaurant['name']} Menu</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
   body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; padding: 24px; max-width: 860px; margin: 0 auto; }}
@@ -40,17 +51,26 @@ HTML_TEMPLATE = """<!doctype html>
 </style>
 </head>
 <body>
-  <h1>{restaurant_name} Menu</h1>
-  {items}
+  <h1>{restaurant['name']} Menu</h1>
+  {''.join(blocks)}
   <p class="note">Scan-to-View by TasteLens • Demo</p>
 </body>
 </html>
 """
+    return html
 
-def render_menu(restaurant):
-    blocks = []
-    for d in restaurant["dishes"]:
-        blocks.append(
-            "<div class='dish'>"
-            f"<img src='{d['img']}' alt='{d['name']}' />"
-            f"<div><h3 class='name'>{d['nam
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def catch_all(path):
+    menu_id = request.args.get('id', '')
+    
+    if not menu_id:
+        return "<h1>Welcome to TasteLens</h1><p>Add ?id=italian1 to view a menu</p>"
+    
+    restaurant = menus.get(menu_id)
+    
+    if not restaurant:
+        return "<h1>Menu not found</h1><p>Available menus: italian1</p>", 404
+    
+    html = render_menu(restaurant)
+    return html
