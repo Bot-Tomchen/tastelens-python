@@ -3,25 +3,11 @@ from urllib.parse import urlparse, parse_qs
 
 # 简单内置“菜单数据库”
 menus = {
-    "restaurant1": {
-        "name": "Golden Dragon",
-        "dishes": [
-            {"name": "Kung Pao Chicken", "img": "/static/kungpao.jpg", "desc": "Spicy stir-fried chicken with peanuts"},
-            {"name": "Mapo Tofu", "img": "/static/mapo.jpg", "desc": "Soft tofu in spicy Sichuan sauce"},
-        ],
-    },
-    "restaurant2": {
-        "name": "Pasta Viva",
-        "dishes": [
-            {"name": "Spaghetti Carbonara", "img": "/static/carbonara.jpg", "desc": "Creamy pasta with pancetta and egg"},
-            {"name": "Margherita Pizza", "img": "/static/pizza.jpg", "desc": "Tomato, mozzarella, and fresh basil"},
-        ],
-    },
     "italian1": {
     "name": "Casa Linga",
     "dishes": [
-        {"name": "CASSALINGA", "img": "/static/CASSALINGA.png", "desc": "Classic Italian homestyle pasta"},
-        {"name": "POLLO RABE", "img": "/static/POLLO RABE.png", "desc": "Grilled chicken with broccoli rabe"},
+        {"name": "CASSALINGA", "img": "/CASSALINGA.png", "desc": "Classic Italian homestyle pasta"},
+        {"name": "POLLO RABE", "img": "/POLLO_RABE.png", "desc": "Grilled chicken with broccoli rabe"}
     ],
 }
 }
