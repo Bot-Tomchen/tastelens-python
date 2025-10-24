@@ -1,14 +1,15 @@
 from http.server import BaseHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
 
-# 简单内置“菜单数据库”
+# GitHub raw URL base
+GITHUB_RAW_BASE = "https://raw.githubusercontent.com/Bot-Tomchen/tastelens-python/main/public"
 
 menus = {
     "italian1": {
         "name": "Casa Linga",
         "dishes": [
-            {"name": "CASSALINGA", "img": "/CASSALINGA.png", "desc": "Classic Italian homestyle pasta"},
-            {"name": "POLLO RABE", "img": "/POLLO_RABE.png", "desc": "Grilled chicken with broccoli rabe"}
+            {"name": "CASSALINGA", "img": f"{GITHUB_RAW_BASE}/CASSALINGA.png", "desc": "Classic Italian homestyle pasta"},
+            {"name": "POLLO RABE", "img": f"{GITHUB_RAW_BASE}/POLLO_RABE.png", "desc": "Grilled chicken with broccoli rabe"}
         ],
     }
 }
@@ -59,14 +60,11 @@ class handler(BaseHTTPRequestHandler):
         params = parse_qs(parsed.query)
         restaurant_id = params.get("id", [""])[0]
         restaurant = menus.get(restaurant_id)
-
         self.send_response(200)
         self.send_header("Content-Type", "text/html; charset=utf-8")
         self.end_headers()
-
         if not restaurant:
             self.wfile.write(b"<h1>Menu not found</h1>")
             return
-
         html = render_menu(restaurant)
         self.wfile.write(html.encode("utf-8"))
