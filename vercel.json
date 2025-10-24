@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "api/menu.py", "use": "@vercel/python" }
+  ],
+  "routes": [
+    { "src": "/menu/(.*)", "dest": "/api/menu.py?id=$1" },
+    { "src": "/api/(.*)", "dest": "/api/$1" }
+  ]
+}
