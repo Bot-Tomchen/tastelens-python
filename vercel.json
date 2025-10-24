@@ -2,12 +2,11 @@
   "version": 2,
   "functions": {
     "api/**/*.py": {
-      "runtime": "@vercel/python@3.11.0"
+      "runtime": "vercel-python@0.5.2"
     }
   },
   "routes": [
     { "src": "^/menu/(.*)$", "dest": "/api/menu.py?id=$1" },
-    { "src": "^/api/(.*)$", "dest": "/api/$1" },
-    { "src": "^/(.*)$", "dest": "/public/$1" }
+    { "src": "^/api/(.*)$", "dest": "/api/$1" }
   ]
 }
