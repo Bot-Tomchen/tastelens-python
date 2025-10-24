@@ -7,7 +7,7 @@
   },
   "routes": [
     { "src": "^/menu/(.*)$", "dest": "/api/menu.py?id=$1" },
-    { "src": "^/api/(.*)$", "dest": "/api/$1" }
-  ],
-  "public": "public"
+    { "src": "^/api/(.*)$", "dest": "/api/$1" },
+    { "src": "^/(.*)$", "dest": "/public/$1" }
+  ]
 }
