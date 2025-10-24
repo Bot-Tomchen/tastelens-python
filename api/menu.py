@@ -17,6 +17,13 @@ menus = {
             {"name": "Margherita Pizza", "img": "/static/pizza.jpg", "desc": "Tomato, mozzarella, and fresh basil"},
         ],
     },
+    "italian1": {
+    "name": "Casa Linga",
+    "dishes": [
+        {"name": "CASSALINGA", "img": "/static/CASSALINGA.png", "desc": "Classic Italian homestyle pasta"},
+        {"name": "POLLO RABE", "img": "/static/POLLO RABE.png", "desc": "Grilled chicken with broccoli rabe"},
+    ],
+}
 }
 
 HTML_TEMPLATE = """<!doctype html>
