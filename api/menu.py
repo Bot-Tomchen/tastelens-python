@@ -1,5 +1,6 @@
-from http.server import BaseHTTPRequestHandler
-from urllib.parse import parse_qs
+from flask import Flask, request
+
+app = Flask(__name__)
 
 # GitHub raw URL base
 GITHUB_RAW_BASE = "https://raw.githubusercontent.com/Bot-Tomchen/tastelens-python/main/public"
@@ -62,23 +63,14 @@ def render_menu(restaurant):
         items="".join(blocks),
     )
 
-class handler(BaseHTTPRequestHandler):
-    def do_GET(self):
-        # Parse query string from path
-        query_string = self.path.split('?', 1)[1] if '?' in self.path else ''
-        params = parse_qs(query_string)
-        restaurant_id = params.get("id", [""])[0]
-        
-        restaurant = menus.get(restaurant_id)
-        
-        # Send response
-        self.send_response(200)
-        self.send_header("Content-Type", "text/html; charset=utf-8")
-        self.end_headers()
-        
-        if not restaurant:
-            self.wfile.write(b"<h1>Menu not found</h1><p>Available: italian1</p>")
-            return
-        
-        html = render_menu(restaurant)
-        self.wfile.write(html.encode("utf-8"))
+@app.route('/')
+@app.route('/api/menu')
+def menu():
+    restaurant_id = request.args.get("id", "")
+    restaurant = menus.get(restaurant_id)
+    
+    if not restaurant:
+        return "<h1>Menu not found</h1><p>Available: italian1</p>", 404
+    
+    html = render_menu(restaurant)
+    return html
