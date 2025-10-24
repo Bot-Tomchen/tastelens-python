@@ -1,0 +1,13 @@
+{
+  "functions": {
+    "api/*.py": {
+      "runtime": "python3.9"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/menu/(.*)",
+      "destination": "/api/menu?id=$1"
+    }
+  ]
+}
