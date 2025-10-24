@@ -2,14 +2,15 @@ from http.server import BaseHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
 
 # 简单内置“菜单数据库”
+
 menus = {
     "italian1": {
-    "name": "Casa Linga",
-    "dishes": [
-        {"name": "CASSALINGA", "img": "/CASSALINGA.png", "desc": "Classic Italian homestyle pasta"},
-        {"name": "POLLO RABE", "img": "/POLLO_RABE.png", "desc": "Grilled chicken with broccoli rabe"}
-    ],
-}
+        "name": "Casa Linga",
+        "dishes": [
+            {"name": "CASSALINGA", "img": "/CASSALINGA.png", "desc": "Classic Italian homestyle pasta"},
+            {"name": "POLLO RABE", "img": "/POLLO_RABE.png", "desc": "Grilled chicken with broccoli rabe"}
+        ],
+    }
 }
 
 HTML_TEMPLATE = """<!doctype html>
