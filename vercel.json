@@ -8,12 +8,8 @@
   ],
   "routes": [
     {
-      "src": "^/menu/?(.*)$",
+      "src": "/menu/(.*)",
       "dest": "/api/menu?id=$1"
-    },
-    {
-      "src": "^/api/(.*)$",
-      "dest": "/api/$1"
     }
   ]
 }
