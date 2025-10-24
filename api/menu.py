@@ -8,8 +8,16 @@ menus = {
     "italian1": {
         "name": "Casa Linga",
         "dishes": [
-            {"name": "CASSALINGA", "img": f"{GITHUB_RAW_BASE}/CASSALINGA.png", "desc": "Classic Italian homestyle pasta"},
-            {"name": "POLLO RABE", "img": f"{GITHUB_RAW_BASE}/POLLO_RABE.png", "desc": "Grilled chicken with broccoli rabe"}
+            {
+                "name": "CASSALINGA", 
+                "img": GITHUB_RAW_BASE + "/CASSALINGA.png", 
+                "desc": "Classic Italian homestyle pasta"
+            },
+            {
+                "name": "POLLO RABE", 
+                "img": GITHUB_RAW_BASE + "/POLLO_RABE.png", 
+                "desc": "Grilled chicken with broccoli rabe"
+            }
         ],
     }
 }
@@ -45,26 +53,4 @@ def render_menu(restaurant):
             f"<div class='dish'>"
             f"<img src='{d['img']}' alt='{d['name']}' />"
             f"<div><h3 class='name'>{d['name']}</h3>"
-            f"<p class='desc'>{d['desc']}</p></div>"
-            f"</div>"
-        )
-    return HTML_TEMPLATE.format(
-        title=f"{restaurant['name']} Menu",
-        restaurant_name=restaurant["name"],
-        items="".join(blocks),
-    )
-
-class handler(BaseHTTPRequestHandler):
-    def do_GET(self):
-        parsed = urlparse(self.path)
-        params = parse_qs(parsed.query)
-        restaurant_id = params.get("id", [""])[0]
-        restaurant = menus.get(restaurant_id)
-        self.send_response(200)
-        self.send_header("Content-Type", "text/html; charset=utf-8")
-        self.end_headers()
-        if not restaurant:
-            self.wfile.write(b"<h1>Menu not found</h1>")
-            return
-        html = render_menu(restaurant)
-        self.wfile.write(html.encode("utf-8"))
+            f"<p class='desc'>{d['desc']}</p>
