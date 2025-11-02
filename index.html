@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Visual Menu Demo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f7f7f7;
+    margin: 0;
+    padding: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(150px,1fr));
+    gap: 12px;
+  }
+
+  .card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+
+  .card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+
+  .label {
+    padding: 8px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .footer-btn {
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+    padding: 12px;
+    background: black;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Visual Menu Demo</h1>
+
+<div class="grid">
+  <div class="card">
+    <img src="Beef Kimbap.png" alt="Beef Kimbap">
+    <div class="label">Beef Kimbap</div>
+  </div>
+
+  <div class="card">
+    <img src="Chicken Katsu Curry with Rice and Salad.png" alt="Chicken Katsu Curry with Rice and Salad">
+    <div class="label">Chicken Katsu Curry</div>
+  </div>
+
+  <div class="card">
+    <img src="Dumpling.png" alt="Dumpling">
+    <div class="label">Dumplings</div>
+  </div>
+
+  <div class="card">
+    <img src="Fried Chicken.png" alt="Fried Chicken">
+    <div class="label">Fried Chicken</div>
+  </div>
+
+  <div class="card">
+    <img src="Fried Rice Cake.png" alt="Fried Rice Cake">
+    <div class="label">Fried Rice Cake</div>
+  </div>
+
+  <div class="card">
+    <img src="Korean BBQ Chicken.png" alt="Korean BBQ Chicken">
+    <div class="label">Korean BBQ Chicken</div>
+  </div>
+
+  <div class="card">
+    <img src="Korean Sweet Potato Fries.png" alt="Korean Sweet Potato Fries">
+    <div class="label">Sweet Potato Fries</div>
+  </div>
+
+  <div class="card">
+    <img src="Pork Gyoza.png" alt="Pork Gyoza">
+    <div class="label">Pork Gyoza</div>
+  </div>
+
+  <div class="card">
+    <img src="Soju.png" alt="Soju">
+    <div class="label">Soju</div>
+  </div>
+
+  <div class="card">
+    <img src="sushi.png" alt="Sushi">
+    <div class="label">Sushi</div>
+  </div>
+</div>
+
+<a href="https://tastelens.vercel.app" class="footer-btn">
+  View Real Menu Demo →
+</a>
+
+</body>
+</html>
