@@ -7,7 +7,7 @@ export default function Home() {
       name: "Jahunger", 
       rating: 4.7,            // 数字
       label: "Suggested",     // 展示用
-      img: "/images/jahunger1.jpg" 
+      img: "/images/Jahunger1.jpg" 
     },
     { 
       id: 2, 
