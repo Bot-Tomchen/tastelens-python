@@ -7,7 +7,7 @@ const restaurants = [
     name: "Jahunger",
     rating: 4.7,                  // 内部用数字
     label: "Suggested",           // 展示用文案
-    img: "/images/jahunger1.jpg", // 首页缩略图用第一张
+    img: "/images/Jahunger1.jpg", // 首页缩略图用第一张
   },
   {
     id: 2,
