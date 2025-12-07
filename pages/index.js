@@ -2,9 +2,27 @@ import Link from "next/link";
 
 export default function Home() {
   const restaurants = [
-    { id: 1, name: "Jahunger", rating: 4.7, img: "/images/jahunger.jpg" },
-    { id: 2, name: "Den Den Korean Fried Chicken", rating: 4.6, img: "/images/denden.jpg" },
-    { id: 3, name: "Feedbacks", rating: 4.5, img: "/images/Tastelens.jpg" },
+    { 
+      id: 1, 
+      name: "Jahunger", 
+      rating: 4.7,            // 数字
+      label: "Suggested",     // 展示用
+      img: "/images/jahunger1.jpg" 
+    },
+    { 
+      id: 2, 
+      name: "Den Den Korean Fried Chicken", 
+      rating: 4.6,
+      label: "Preferred", 
+      img: "/images/denden1.jpg" 
+    },
+    { 
+      id: 3, 
+      name: "Feedbacks (TasteLens Team)", 
+      rating: 4.5,
+      label: "Anniversary-Worthy", 
+      img: "/images/Tastelens.jpg" 
+    },
   ];
 
   return (
@@ -18,7 +36,6 @@ export default function Home() {
           <Link key={r.id} href={`/restaurant/${r.id}`} className="block">
             <div className="bg-white rounded-2xl p-4 shadow-sm border border-[#f0ebe3] cursor-pointer hover:shadow-md transition-shadow duration-150">
 
-              {/* 优化版图片区：高度小、竖图更自然 */}
               <div className="relative w-full h-28 overflow-hidden rounded-xl mb-3 bg-[#f5f0e8]">
                 <img
                   src={r.img}
@@ -31,7 +48,7 @@ export default function Home() {
                 {r.name}
               </div>
               <div className="text-[#a8712a] font-medium mt-1">
-                ⭐ {r.rating}
+                {r.label}
               </div>
             </div>
           </Link>
