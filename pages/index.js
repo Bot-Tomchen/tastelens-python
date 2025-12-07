@@ -17,12 +17,13 @@ export default function Home() {
         {restaurants.map((r) => (
           <Link key={r.id} href={`/restaurant/${r.id}`} className="block">
             <div className="bg-white rounded-2xl p-4 shadow-sm border border-[#f0ebe3] cursor-pointer hover:shadow-md transition-shadow duration-150">
-              {/* 图片区域：固定 16:9 比例，object-cover 居中裁剪 */}
-              <div className="relative w-full aspect-[16/9] overflow-hidden rounded-xl mb-3 bg-[#f5f0e8]">
+
+              {/* 优化版图片区：高度小、竖图更自然 */}
+              <div className="relative w-full h-28 overflow-hidden rounded-xl mb-3 bg-[#f5f0e8]">
                 <img
                   src={r.img}
                   alt={r.name}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover object-center"
                 />
               </div>
 
