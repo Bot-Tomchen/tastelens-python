@@ -9,10 +9,10 @@ const restaurantData = {
     name: "Jahunger",
     label: "Suggested",
     imgs: [
-      "/images/jahunger1.jpg",
-      "/images/jahunger2.jpg",
-      "/images/jahunger3.jpg",
-      "/images/jahunger4.jpg",
+      "/images/Jahunger1.jpg",
+      "/images/Jahunger2.jpg",
+      "/images/Jahunger3.jpg",
+      "/images/Jahunger4.jpg",
     ],
     description: "Uyghur / Central Asian comfort food in Fox Point.",
   },
@@ -123,7 +123,9 @@ export default function RestaurantPage() {
       <h1 className="text-2xl font-bold text-[#4a3a2e] mb-1">
         {restaurant.name}
       </h1>
-      <div className="text-[#a8712a] font-medium mb-2">⭐ {restaurant.label}</div>
+      <div className="text-[#a8712a] font-medium mb-2">
+        ⭐ {restaurant.label}
+      </div>
       <p className="text-sm text-[#6d5a48] mb-5">{restaurant.description}</p>
 
       {/* 写评论按钮 */}
