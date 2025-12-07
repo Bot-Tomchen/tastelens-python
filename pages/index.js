@@ -36,11 +36,13 @@ export default function Home() {
         {restaurants.map((r) => (
           <Link key={r.id} href={`/restaurant/${r.id}`} className="block">
             <div className="bg-white rounded-2xl p-4 shadow-sm border border-[#f0ebe3] cursor-pointer hover:shadow-md transition-shadow duration-150">
+              
               {/* 竖图缩略图 */}
               <div className="relative w-full h-28 overflow-hidden rounded-xl mb-3 bg-[#f5f0e8]">
                 <img
                   src={r.img}
                   alt={r.name}
+                  loading="lazy"   // ← new
                   className="absolute inset-0 w-full h-full object-cover object-center"
                 />
               </div>
@@ -51,6 +53,7 @@ export default function Home() {
               <div className="text-[#a8712a] font-medium mt-1">
                 ⭐ {r.label}
               </div>
+
             </div>
           </Link>
         ))}
